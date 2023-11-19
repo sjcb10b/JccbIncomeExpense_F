@@ -1,0 +1,74 @@
+﻿@model IEnumerable<JccbIncomeExpense.Models.Catexpense>
+@using X.PagedList.Mvc.Core; <!--import to get HTML Helper-->
+@using X.PagedList;
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .link {
+        color: #FFFFFF;
+    }
+
+    .table {
+        font-size: 12px;
+    }
+    /* CSS link color */
+</style>
+
+<p>
+
+    <a onclick="showInPopup('@Url.Action("AddOrEdit","Catexpenses",null,Context.Request.Scheme)','New Category')" class="btn btn-primary text-white"><i class="fas fa-random"></i> New Category</a>
+</p>
+
+<form asp-action="Index" asp-controller="Catexpenses" method="post">
+    <span>Category Name:</span>
+        <input type="text" name="Excategory" />
+        <input type="submit" value="Search" />
+    <button type="button" onClick="refreshPage()"> Reset</button>
+    <br /><br />
+   
+<script>
+function refreshPage(){
+            location.href = 'https://localhost:44354/Catexpenses/Index';
+        } 
+</script>
+<table class="table table-hover" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Excategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Excategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayOrder)
+            </td>
+            <td>
+                   
+
+                    <a onclick="showInPopup('@Url.Action("AddOrEdit","Catexpenses",new {id=item.CatexpenseId},Context.Request.Scheme)','Update Category')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
+
+
+
+
+                    <form asp-action="Delete" asp-route-id="@item.CatexpenseId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                        <input type="hidden" asp-for="@item.CatexpenseId" />
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</form>

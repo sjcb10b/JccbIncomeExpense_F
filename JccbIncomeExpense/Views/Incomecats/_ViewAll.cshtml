@@ -1,0 +1,86 @@
+﻿@model IEnumerable<JccbIncomeExpense.Models.Incomecat>
+@using X.PagedList.Mvc.Core; <!--import to get HTML Helper-->
+@using X.PagedList;
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .link {
+        color: #FFFFFF;
+    }
+
+    .table {
+        font-size: 12px;
+    }
+    /* CSS link color */
+ 
+    .form-control {
+        
+        width: 350px Important;
+         
+    }
+</style>
+</style>
+
+<p>
+   
+    <a onclick="showInPopup('@Url.Action("AddOrEdit","IncomeCats",null,Context.Request.Scheme)','New Category')" class="btn btn-primary text-white"><i class="fas fa-random"></i> New Transaction</a>
+</p>
+
+<form asp-action="Index" asp-controller="IncomeCats" method="post">
+    <span>Category Name:</span>
+        <input type="text" name="Icategory" />
+        <input type="submit" value="Search" />
+    <button type="button" onClick="refreshPage()"> Reset</button>
+    <br /><br />
+   
+<script>
+function refreshPage(){
+            location.href = 'https://localhost:44354/IncomeCats/Index';
+        } 
+</script>
+<table class="table table-hover" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Icategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayOrder)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayOrder)
+            </td>
+            <td>
+                   @*
+                    <button type="button" class="btn btn-warning"><a class="link" asp-action="Edit" asp-route-id="@item.CIncomeId">Edit</a></button>
+                    <button type="button" class="btn btn-danger"><a class="link" asp-action="Delete" asp-route-id="@item.CIncomeId">Delete</a></button>
+
+                   *@
+                 
+
+                    <a onclick="showInPopup('@Url.Action("AddOrEdit","IncomeCats",new {id=item.CIncomeId},Context.Request.Scheme)','Update Category')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
+
+
+                  
+
+                     <form asp-action="Delete" asp-route-id="@item.CIncomeId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                            <input type="hidden" asp-for="@item.CIncomeId" />
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</form>

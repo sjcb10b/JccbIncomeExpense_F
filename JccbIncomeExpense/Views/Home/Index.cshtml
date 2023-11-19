@@ -1,0 +1,501 @@
+﻿@model ViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Welcome  Expense Tracker</h2>
+
+</div>
+<link href="~/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+<link href="~/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+<link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="~/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+<section class="section dashboard">
+    <div class="row">
+
+        <!-- Sales Card -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card info-card sales-card">
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title" style="color: rgb(0, 227, 150)">
+                        September<span>
+                            |    Tracker <h3>
+                            </h3>
+                        </span>
+                    </h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="text-muteddincome card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+
+
+                        <div class="ps-3">
+                            <h6>$@Model.InfoincomesSeptember.Sum(i => i.SaleAmount).Value.ToString("N")</h6>
+                            <span class="text-muteddincome" style="color: rgb(0, 227, 150);font-weight: 600; font-size: 14px;">Income</span>
+
+                        </div>
+
+                        <div class="ps-5"></div>
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- End Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card info-card sales-card">
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title" style="color: rgb(0, 227, 150)">
+                        October<span>
+                            |    Tracker <h3>
+                            </h3>
+                        </span>
+                    </h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="text-muteddincome card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+
+
+                        <div class="ps-3">
+                            <h6>$@Model.InfoincomesOctober.Sum(i => i.SaleAmount).Value.ToString("N")</h6>
+                            <span class="text-muteddincome" style="color: rgb(0, 227, 150);font-weight: 600; font-size: 14px;">Income</span>
+
+                        </div>
+
+                        <div class="ps-5"></div>
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- End Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card info-card sales-card">
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title" style="color: rgb(0, 227, 150)">
+                        November<span>
+                            |    Tracker <h3>
+                            </h3>
+                        </span>
+                    </h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="text-muteddincome card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+
+
+                        <div class="ps-3">
+                            <h6>$@Model.InfoincomesNovember.Sum(i => i.SaleAmount).Value.ToString("N")</h6>
+                            <span class="text-muteddincome" style="color: rgb(0, 227, 150);font-weight: 600; font-size: 14px;">Income</span>
+
+                        </div>
+
+                        <div class="ps-5"></div>
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- End Sales Card -->
+        <!-- Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card info-card sales-card">
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title" style="color: rgb(0, 227, 150)">
+                        December<span>
+                            |    Tracker <h3>
+                            </h3>
+                        </span>
+                    </h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="text-muteddincome card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+
+
+                        <div class="ps-3">
+                            <h6>$@Model.InfoincomesDecember.Sum(i => i.SaleAmount).Value.ToString("N")</h6>
+                            <span class="text-muteddincome" style="color: rgb(0, 227, 150);font-weight: 600; font-size: 14px;">Income</span>
+
+                        </div>
+
+                        <div class="ps-5"></div>
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- End Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card info-card sales-card">
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title" style=" color: rgb(254, 176, 25);">
+                        September<span>
+                            |    Tracker <h3>
+                            </h3>
+                        </span>
+                    </h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="text-muteddincome card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>$@Model.MyexpensesSeptember.Sum(i => i.ExpAmount).Value.ToString("N")</h6>
+                            <span class="text-muteddincome" style=" color: rgb(254, 176, 25);font-weight: 600; font-size: 14px;">Expense</span>
+
+                        </div>
+
+                        <div class="ps-5"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- End Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card info-card sales-card">
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title" style=" color: rgb(254, 176, 25);">
+                        October<span>
+                            |    Tracker <h3>
+                            </h3>
+                        </span>
+                    </h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="text-muteddincome card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>$@Model.MyexpensesOctober.Sum(i => i.ExpAmount).Value.ToString("N")</h6>
+                            <span class="text-muteddincome" style=" color: rgb(254, 176, 25);font-weight: 600; font-size: 14px;">Expense</span>
+
+                        </div>
+
+                        <div class="ps-5"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- End Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card info-card sales-card">
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title" style=" color: rgb(254, 176, 25);">
+                        November<span>
+                            |    Tracker <h3>
+                            </h3>
+                        </span>
+                    </h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="text-muteddincome card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>$@Model.MyexpensesNovember.Sum(i => i.ExpAmount).Value.ToString("N")</h6>
+                            <span class="text-muteddincome" style=" color: rgb(254, 176, 25);font-weight: 600; font-size: 14px;">Expense</span>
+
+                        </div>
+
+                        <div class="ps-5"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- End Sales Card -->
+        <!-- Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-3 col-md-3">
+            <div class="card info-card sales-card">
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title" style=" color: rgb(254, 176, 25);">
+                        December<span>
+                            |    Tracker <h3>
+                            </h3>
+                        </span>
+                    </h5>
+
+                    <div class="d-flex align-items-center">
+                        <div class="text-muteddincome card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <div class="ps-3">
+                            <h6>$@Model.MyexpensesDecember.Sum(i => i.ExpAmount).Value.ToString("N")</h6>
+                            <span class="text-muteddincome" style=" color: rgb(254, 176, 25);font-weight: 600; font-size: 14px;">Expense</span>
+
+                        </div>
+
+                        <div class="ps-5"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- End Sales Card -->
+
+
+    </div>
+</section>
+
+
+
+
+
+<section class="section">
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Income | Expense</h5>
+
+                    <!-- Column Chart -->
+                    <div id="columnChart"></div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#columnChart"), {
+                                series: [{
+
+                                    name: 'INCOME',
+                                    data: [@Model.InfoincomesSeptember.Sum(i => i.SaleAmount), @Model.InfoincomesOctober.Sum(i => i.SaleAmount), @Model.InfoincomesNovember.Sum(i => i.SaleAmount), @Model.InfoincomesDecember.Sum(i => i.SaleAmount)]
+                                }, {
+                                    name: 'EXPENSE',
+                                    data: [@Model.MyexpensesSeptember.Sum(i => i.ExpAmount), @Model.MyexpensesOctober.Sum(i => i.ExpAmount), @Model.MyexpensesNovember.Sum(i => i.ExpAmount), @Model.MyexpensesDecember.Sum(i => i.ExpAmount) ]
+                                }],
+
+
+
+                                chart: {
+                                    type: 'bar',
+                                    height: 350
+                                },
+                                plotOptions: {
+                                    bar: {
+                                        horizontal: false,
+                                        columnWidth: '55%',
+                                        endingShape: 'rounded'
+                                    },
+                                },
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                stroke: {
+                                    show: true,
+                                    width: 2,
+                                    colors: ['transparent']
+                                },
+                                xaxis: {
+                                    categories: ['September', 'October', 'November', 'December'],
+                                },
+                                yaxis: {
+                                    title: {
+                                        text: '$ (thousands)'
+                                    }
+                                },
+                                fill: {
+                                    opacity: 1
+                                },
+                                tooltip: {
+                                    y: {
+                                        formatter: function (val) {
+                                            return "$ " + val + " thousands"
+                                        }
+                                    }
+                                }
+                            }).render();
+                        });
+                    </script>
+                    <!-- End Column Chart -->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Income | Expense  @Model.InfoincomesSalary.Sum(i => i.SaleAmount)</h5>
+
+                    <!-- Pie Chart -->
+                    <div id="pieChart"></div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#pieChart"), {
+                                series: [13, 86, 38, 84],
+                                chart: {
+                                    height: 350,
+                                    type: 'pie',
+                                    toolbar: {
+                                        show: true
+                                    }
+                                },
+                                labels: ['Salary', 'Stock Market', 'Rent Maintenance', 'Property Maintenance']
+                            }).render();
+                        });
+                    </script>
+                    <!-- End Pie Chart -->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Income | Expense</h5>
+
+                    <!-- Radial Bar Chart -->
+                    <div id="radialBarChart"></div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#radialBarChart"), {
+                                series: [13, 86, 38, 84],
+                                chart: {
+                                    height: 350,
+                                    type: 'radialBar',
+                                    toolbar: {
+                                        show: true
+                                    }
+                                },
+                                plotOptions: {
+                                    radialBar: {
+                                        dataLabels: {
+                                            name: {
+                                                fontSize: '22px',
+                                            },
+                                            value: {
+                                                fontSize: '16px',
+                                            },
+                                            total: {
+                                                show: true,
+                                                label: 'Total : $',
+                                                formatter: function (w) {
+                                                    // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+                                                    return 42320
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                labels: ['Salary', 'Stock Market', 'Rent Maintenance', 'Property Maintenance'],
+                            }).render();
+                        });
+                    </script>
+                    <!-- End Radial Bar Chart -->
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Income | Expense</h5>
+
+                    <!-- Polar Area Chart -->
+                    <div id="polarAreaChart"></div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                            new ApexCharts(document.querySelector("#polarAreaChart"), {
+                                series: [13, 86, 38, 84],
+                                chart: {
+                                    type: 'polarArea',
+                                    height: 350,
+                                    toolbar: {
+                                        show: true
+                                    }
+                                },
+                                stroke: {
+                                    colors: ['#fff']
+                                },
+                                fill: {
+                                    opacity: 0.8
+                                }
+                            }).render();
+                        });
+                    </script>
+                    <!-- End Polar Area Chart -->
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</section>
+<!-- Vendor JS Files -->
+<script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/assets/vendor/chart.js/chart.min.js"></script>
+<script src="~/assets/vendor/echarts/echarts.min.js"></script>
+<script src="~/assets/vendor/quill/quill.min.js"></script>

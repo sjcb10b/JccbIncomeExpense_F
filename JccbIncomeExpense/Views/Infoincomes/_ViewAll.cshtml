@@ -1,0 +1,111 @@
+﻿@model IEnumerable<JccbIncomeExpense.Models.Infoincome>
+@using X.PagedList.Mvc.Core; <!--import to get HTML Helper-->
+@using X.PagedList;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .link {
+        color: #FFFFFF;
+    }
+    .table{
+        font-size:12px;
+    }
+    /* CSS link color */
+</style>
+
+
+
+<p>
+
+    <a onclick="showInPopup('@Url.Action("AddOrEdit","Infoincomes",null,Context.Request.Scheme)','New Item')" class="btn btn-primary text-white"><i class="fas fa-random"></i> New Item</a>
+</p>
+
+<form asp-action="Index" asp-controller="Infoincomes" method="post">
+    <span>Reference Name:</span>
+        <input type="text" name="Reference" />
+        <input style="width:200px" type="submit" value="SEARCH " />
+    <button type="button" onClick="refreshPage()"> RESET</button>
+    <br /><br />
+
+
+    <script>
+    function refreshPage(){
+    location.href = 'https://localhost:44354/Infoincomes/Index';
+    }
+    </script>
+
+<table class="table table-hover" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Incomename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reference)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Icategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Incomename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reference)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dated)
+            </td>
+            <td>
+                  <a onclick="showInPopup('@Url.Action("AddOrEdit","Infoincomes",new {id=item.IncomeId},Context.Request.Scheme)','Update Category')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
+
+
+                  
+
+                     <form asp-action="Delete" asp-route-id="@item.IncomeId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                            <input type="hidden" asp-for="@item.IncomeId" />
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+
+
+                     @*
+                     <button type="button" class="btn btn-warning"><a class="link" asp-action="Edit" asp-route-id="@item.IncomeId">Edit</a> </button>
+                    <button type="button" class="btn btn-danger"><a class="link" asp-action="Delete" asp-route-id="@item.IncomeId">Delete</a> </button>
+                     *@
+
+
+                    
+
+
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</form>
