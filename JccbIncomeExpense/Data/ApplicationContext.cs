@@ -13,6 +13,7 @@ namespace JccbIncomeExpense.Data
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
 
+
         }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
